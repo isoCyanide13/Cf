@@ -12,9 +12,24 @@ void Solve() {
     string s;
     cin >> s;
 
-    int minimumCost;
     
-
+    int greaterThan = 1;
+    int lessThan = 1;
+    
+    for(int i = 1; i < n; ++i) {
+        if(s[i] == s[i-1]) {
+            if(s[i] == '<') {
+                lessThan++;
+            }
+            else if(s[i] == '>') {
+                greaterThan++;
+            }
+        }
+    }
+    
+    int minimumCost = max(greaterThan, lessThan) + 1;
+    
+    cout << minimumCost << '\n';
 }
 
 int32_t main() {
