@@ -12,8 +12,9 @@ void Solve() {
     string s;
     cin >> s;
 
-    int minCost;
+    int minimumCost;
     
+
 }
 
 int32_t main() {
