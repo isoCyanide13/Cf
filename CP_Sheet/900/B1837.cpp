@@ -11,24 +11,21 @@ void Solve() {
 
     string s;
     cin >> s;
+    
+    int maxConsecutive = 1;
+    int equalConsecutive = 1;
 
-    
-    int greaterThan = 1;
-    int lessThan = 1;
-    
     for(int i = 1; i < n; ++i) {
         if(s[i] == s[i-1]) {
-            if(s[i] == '<') {
-                lessThan++;
-            }
-            else if(s[i] == '>') {
-                greaterThan++;
-            }
+            equalConsecutive += 1;
         }
+        else {
+            equalConsecutive = 1;
+        }
+        maxConsecutive = max(maxConsecutive,equalConsecutive);
     }
-    
-    int minimumCost = max(greaterThan, lessThan) + 1;
-    
+
+    int minimumCost = maxConsecutive + 1;
     cout << minimumCost << '\n';
 }
 
