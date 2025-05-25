@@ -1,47 +1,42 @@
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
+#define isocyanide ios::sync_with_stdio(false); cin.tie(0), cout.tie(0);
+#define all(x) (x).begin(), (x).end()
+
 using namespace std;
-#define int long long
-#define INF (int)1e18
-#define f first
-#define s second
+typedef vector<int> vi;
 
-mt19937_64 RNG(chrono::steady_clock::now().time_since_epoch().count());
+void Solve() {
+    int n;
+    cin >> n;
+    
+    vector<long long> a(n);
+    for(int i = 0; i < n; ++i) {
+        cin >> a[i];
+    }
 
-void Solve() 
-{
-    int n; cin >> n;
-    
-    for (int i = 0; i < n; i++) {
-        int x; cin >> x;
+    long long res = LLONG_MAX;
+    // initially x = a[i]-i = a[0]-0
+    long long x = a[0]-0;
+
+    for(int j = 1; j < n; ++j) {
+        // val = a[i]+a[j]+j-i
+        long long val = (a[j]+j) + x;
+        res = min(res,val);
+        // a[0]-0 will be upgraded to a[1]-1 and so on...
+        x = min(x,a[j]-j);
     }
-    
-    if (n % 2 == 0){
-        cout << 2 << "\n";
-        cout << 1 << " " << n << "\n";
-        cout << 1 << " " << n << "\n";
-    } else {
-        cout << 4 << "\n";
-        cout << 1 << " " << n - 1 << "\n";
-        cout << 1 << " " << n - 1 << "\n";
-        cout << n - 1 << " " << n << "\n";
-        cout << n - 1 << " " << n << "\n";
-    }
+    cout << res << '\n';
 }
 
-int32_t main() 
-{
-    auto begin = std::chrono::high_resolution_clock::now();
-    ios_base::sync_with_stdio(0);
-    cin.tie(0);
+int32_t main() {
+    
+    isocyanide
+    
     int t = 1;
     cin >> t;
-    for(int i = 1; i <= t; i++) 
-    {
-        //cout << "Case #" << i << ": ";
+    for(int i = 1; i <= t; i++) {
         Solve();
     }
-    auto end = std::chrono::high_resolution_clock::now();
-    auto elapsed = std::chrono::duration_cast<std::chrono::nanoseconds>(end - begin);
-    cerr << "Time measured: " << elapsed.count() * 1e-9 << " seconds.\n"; 
+
     return 0;
 }
