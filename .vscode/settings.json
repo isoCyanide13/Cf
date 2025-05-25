@@ -108,5 +108,6 @@
         "typeinfo": "cpp",
         "valarray": "cpp",
         "variant": "cpp"
-    }
+    },
+    "window.zoomLevel": 1
 }
