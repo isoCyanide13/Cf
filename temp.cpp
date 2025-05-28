@@ -8,35 +8,27 @@ typedef vector<int> vi;
 void Solve() {
     int n;
     cin >> n;
+
+    vector<long long> a = {0,1};
+    if(n < 2) {
+        cout << a[n-1];
+    }
     
-    vector<long long> a(n);
-    for(int i = 0; i < n; ++i) {
-        cin >> a[i];
+    else {
+        long long temp = 0;
+        for(int i = 2; i < n; ++i) {
+            temp = a[i-2] + a[i-1];
+            a.push_back(temp);
+        }
+        cout << a[n-1];
     }
-
-    long long res = LLONG_MAX;
-    // initially x = a[i]-i = a[0]-0
-    long long x = a[0]-0;
-
-    for(int j = 1; j < n; ++j) {
-        // val = a[i]+a[j]+j-i
-        long long val = (a[j]+j) + x;
-        res = min(res,val);
-        // a[0]-0 will be upgraded to a[1]-1 and so on...
-        x = min(x,a[j]-j);
-    }
-    cout << res << '\n';
 }
 
 int32_t main() {
     
     isocyanide
-    
-    int t = 1;
-    cin >> t;
-    for(int i = 1; i <= t; i++) {
-        Solve();
-    }
+
+    Solve();
 
     return 0;
 }
