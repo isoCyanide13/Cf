@@ -5,30 +5,21 @@
 using namespace std;
 typedef vector<int> vi;
 
-void Solve() {
-    int n;
-    cin >> n;
+void Solution() {
+    string txt, revtxt;
+    cin >> txt;
 
-    vector<long long> a = {0,1};
-    if(n < 2) {
-        cout << a[n-1];
-    }
-    
-    else {
-        long long temp = 0;
-        for(int i = 2; i < n; ++i) {
-            temp = a[i-2] + a[i-1];
-            a.push_back(temp);
-        }
-        cout << a[n-1];
-    }
+    revtxt = txt;
+    reverse(all(revtxt));
+
+    cout << (revtxt == txt ? "YES" : "NO");
 }
 
 int32_t main() {
     
     isocyanide
-
-    Solve();
+    
+    Solution();
 
     return 0;
 }

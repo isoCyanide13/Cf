@@ -1,1 +1,8 @@
-34
+x type						:	i
+y type						:	f
+z type						:	f
+Is x const ?				:	0
+Is y const ?				:	0
+Is y_removed_ref const ?	:	1
+Is z const ?				:	0
+Is z_removed_ref const ?	:	1

@@ -5,8 +5,8 @@
 using namespace std;
 typedef vector<int> vi;
 
-void Solve() {
-
+void Solution() {
+   
 }
 
 int32_t main() {
@@ -16,7 +16,7 @@ int32_t main() {
     int t = 1;
     cin >> t;
     for(int i = 1; i <= t; i++) {
-        Solve();
+        Solution();
     }
 
     return 0;
